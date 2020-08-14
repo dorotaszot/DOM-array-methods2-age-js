@@ -33,6 +33,12 @@ function doubleAge() {
   addToMain();
 }
 
+function sortByAge() {
+  addedPeople.sort((a, b) => b.age - a.age
+  )
+  addToMain()
+}
+
 function addData(obj) {
   addedPeople.push(obj);
 
@@ -56,3 +62,4 @@ function addToMain(providedData = addedPeople) {
 
 addPersonBtn.addEventListener('click', getRandomPerson);
 doubleAgeBtn.addEventListener('click', doubleAge);
+sortBtn.addEventListener('click', sortByAge);
