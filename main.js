@@ -9,7 +9,7 @@ getRandomPerson();
 getRandomPerson();
 getRandomPerson();
 
-const addedPeople = [];
+let addedPeople = [];
 
 async function getRandomPerson() {
   const res = await fetch('https://randomuser.me/api');
@@ -23,6 +23,14 @@ async function getRandomPerson() {
   }
 
   addData(newPerson);
+}
+
+function doubleAge() {
+  addedPeople = addedPeople.map(newPerson => {
+    return { ...newPerson, age: newPerson.age * 2 }
+  })
+
+  addToMain();
 }
 
 function addData(obj) {
@@ -47,3 +55,4 @@ function addToMain(providedData = addedPeople) {
 }
 
 addPersonBtn.addEventListener('click', getRandomPerson);
+doubleAgeBtn.addEventListener('click', doubleAge);
