@@ -39,6 +39,17 @@ function sortByAge() {
   addToMain()
 }
 
+function showAdults() {
+  addedPeople = addedPeople.filter(person => person.age >= 18
+  )
+  addToMain();
+}
+
+function showOver65() {
+  addedPeople = addedPeople.filter(person => person.age > 65)
+  addToMain();
+}
+
 function addData(obj) {
   addedPeople.push(obj);
 
@@ -63,3 +74,5 @@ function addToMain(providedData = addedPeople) {
 addPersonBtn.addEventListener('click', getRandomPerson);
 doubleAgeBtn.addEventListener('click', doubleAge);
 sortBtn.addEventListener('click', sortByAge);
+showAdultsBtn.addEventListener('click', showAdults);
+showOver65Btn.addEventListener('click', showOver65);
