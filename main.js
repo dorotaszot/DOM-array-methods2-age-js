@@ -3,6 +3,7 @@ const doubleAgeBtn = document.getElementById('double-age');
 const showAdultsBtn = document.getElementById('show-adults');
 const showOver65Btn = document.getElementById('show-over-65');
 const sortBtn = document.getElementById('sort');
+const calculateEntireAgeBtn = document.getElementById('calculate-entire-age');
 const main = document.getElementById('main');
 
 getRandomPerson();
@@ -50,6 +51,15 @@ function showOver65() {
   addToMain();
 }
 
+function calculateEntireAge() {
+  const entireAge = addedPeople.reduce((acc, person) => (acc += person.age), 0);
+  console.log(entireAge);
+
+  const entireAgeElement = document.createElement('div');
+  entireAgeElement.innerHTML = `<h3>Entire Age: <strong>${entireAge}</strong></h3>`;
+  main.appendChild(entireAgeElement);
+}
+
 function addData(obj) {
   addedPeople.push(obj);
 
@@ -76,3 +86,4 @@ doubleAgeBtn.addEventListener('click', doubleAge);
 sortBtn.addEventListener('click', sortByAge);
 showAdultsBtn.addEventListener('click', showAdults);
 showOver65Btn.addEventListener('click', showOver65);
+calculateEntireAgeBtn.addEventListener('click', calculateEntireAge);
